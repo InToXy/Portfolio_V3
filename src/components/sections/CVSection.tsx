@@ -61,7 +61,7 @@ const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
                 <div className="grid md:grid-cols-2 gap-6 mb-16 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
                     {/* FR Resume Card */}
                     <a
-                        href="/Portfolio_V3/public/files/CV ATS Matheo Pinget FR.pdf"
+                        href="/Portfolio_V3/files/CV ATS Matheo Pinget FR.pdf"
                         download
                         className="group relative p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 hover:border-primary-500/50 hover:bg-white dark:hover:bg-slate-900/60 transition-all duration-300 backdrop-blur-md overflow-hidden shadow-sm dark:shadow-none"
                     >
@@ -84,7 +84,7 @@ const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
 
                     {/* EN Resume Card */}
                     <a
-                        href="/Portfolio_V3/public/files/CV ATS Matheo Pinget EN.pdf"
+                        href="/Portfolio_V3/files/CV ATS Matheo Pinget EN.pdf"
                         download
                         className="group relative p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 hover:border-purple-500/50 hover:bg-white dark:hover:bg-slate-900/60 transition-all duration-300 backdrop-blur-md overflow-hidden shadow-sm dark:shadow-none"
                     >
