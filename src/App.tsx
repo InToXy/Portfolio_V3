@@ -1,16 +1,16 @@
 
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Passions from './components/Passions';
-import TerminalSection from './components/TerminalSection';
-import CVSection from './components/CVSection';
-import Footer from './components/Footer';
-import ScrollBackground from './components/ScrollBackground';
+import Navbar from './components/layout/Navbar';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Projects from './components/sections/Projects';
+import Experience from './components/sections/Experience';
+import Passions from './components/sections/Passions';
+import TerminalSection from './components/features/TerminalSection';
+import CVSection from './components/sections/CVSection';
+import Footer from './components/layout/Footer';
+import ScrollBackground from './components/features/ScrollBackground';
 import { TRANSLATIONS } from './constants';
 
 const App: React.FC = () => {
@@ -65,21 +65,21 @@ const App: React.FC = () => {
 
     // Re-observe when page changes or content updates
     setTimeout(() => {
-        const targets = document.querySelectorAll('.reveal-on-scroll');
-        targets.forEach((target) => observer.observe(target));
+      const targets = document.querySelectorAll('.reveal-on-scroll');
+      targets.forEach((target) => observer.observe(target));
     }, 100);
 
     return () => {
       observer.disconnect();
     };
-  }, [currentPage, lang]); 
+  }, [currentPage, lang]);
 
   const handleNavigation = (page: string) => {
     if (page === 'cv') {
-        setCurrentPage('cv');
-        window.scrollTo(0, 0);
+      setCurrentPage('cv');
+      window.scrollTo(0, 0);
     } else {
-        setCurrentPage('home');
+      setCurrentPage('home');
     }
   };
 
@@ -89,10 +89,10 @@ const App: React.FC = () => {
   // If on CV page, render standard page layout but with just CV component
   if (currentPage === 'cv') {
     return (
-        <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
-            <ScrollBackground />
-            <CVSection onBack={() => handleNavigation('home')} content={content.cv} data={content} />
-        </div>
+      <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
+        <ScrollBackground />
+        <CVSection onBack={() => handleNavigation('home')} content={content.cv} data={content} />
+      </div>
     );
   }
 
@@ -100,15 +100,15 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-primary-500 selection:text-white relative">
       <ScrollBackground />
-      <Navbar 
-        darkMode={darkMode} 
-        toggleTheme={toggleTheme} 
-        onNavigate={handleNavigation} 
-        lang={lang} 
+      <Navbar
+        darkMode={darkMode}
+        toggleTheme={toggleTheme}
+        onNavigate={handleNavigation}
+        lang={lang}
         toggleLang={toggleLang}
         content={content.nav}
       />
-      
+
       <main className="relative z-10">
         <Hero onNavigate={handleNavigation} content={content.hero} />
         <About content={content.about} />
@@ -118,7 +118,7 @@ const App: React.FC = () => {
         <Experience content={content.experience} />
         <Passions content={content.passions} />
       </main>
-      
+
       <Footer content={content.footer} />
     </div>
   );

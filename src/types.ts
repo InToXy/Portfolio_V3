@@ -11,6 +11,7 @@ export interface Project {
   techStack?: string[]; // More specific list if needed, or reuse tags
   context?: string;
   results?: string[];
+  competencies?: string[];
   githubUrl?: string;
   demoUrl?: string;
   downloadUrl?: string;

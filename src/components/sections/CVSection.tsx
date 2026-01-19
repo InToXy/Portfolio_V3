@@ -1,7 +1,7 @@
 
 import React, { useEffect } from 'react';
 import { Download, ArrowLeft, Award, GraduationCap, Languages, FileText, CheckCircle2, User, Briefcase, MapPin, Phone, Mail, Github, Linkedin } from 'lucide-react';
-import { PROFILE, CERTIFICATIONS, SOCIALS } from '../constants';
+import { PROFILE, CERTIFICATIONS, SOCIALS } from '../../constants';
 
 interface CVSectionProps {
   onBack?: () => void;

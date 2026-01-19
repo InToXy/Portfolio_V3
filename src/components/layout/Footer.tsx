@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { PROFILE, SOCIALS } from '../constants';
+import { PROFILE, SOCIALS } from '../../constants';
 import { Mail, Linkedin, Github } from 'lucide-react';
 
 interface FooterProps {
