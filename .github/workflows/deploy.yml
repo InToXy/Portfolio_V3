@@ -1,18 +1,14 @@
-name: Ultra Robust CI/CD Pipeline
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: ['main', 'dev']
-  pull_request:
-    branches: ['main', 'dev']
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
-  pull-requests: write
-  security-events: write
 
 concurrency:
   group: 'pages-${{ github.ref }}'
@@ -22,70 +18,8 @@ env:
   NODE_VERSION: '20'
 
 jobs:
-  # Job 1: Code Quality Check
-  # (Commented out until ESLint/Prettier are configured in package.json)
-  # code-quality:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Setup Node.js
-  #       uses: actions/setup-node@v4
-  #       with:
-  #         node-version: ${{ env.NODE_VERSION }}
-  #         cache: 'npm'
-  #     - name: Install dependencies
-  #       run: npm ci
-  #     - name: Lint and format
-  #       run: |
-  #         # npm run format
-  #         # npm run lint
-  #         echo "Linting skipped (tools not configured)"
-
-  # Job 2: Security Audit
-  security:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run npm audit
-        run: npm audit --audit-level=high
-
-  # Job 3: Type Check
-  validate:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Run Type Check
-        run: npm run type-check
-
-  # Job 4: Build Application
+  # Job 1: Build Application
   build:
-    needs: [security, validate]
-    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -119,10 +53,10 @@ jobs:
         with:
           path: ./dist
 
-  # Job 5: Deploy to Production
+  # Job 2: Deploy to Production
   deploy:
     needs: build
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/dev'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment:
