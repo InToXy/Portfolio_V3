@@ -105,7 +105,7 @@ const PipelineAnimation = () => {
                     </div>
                     <div className="font-mono text-xs text-slate-400 flex items-center gap-2">
                         {currentStage > 0 && currentStage < 5 && <span className="animate-spin">⟳</span>}
-                        pipeline_v3.yml
+                        portfolio_pinget_matheo.yml
                     </div>
                 </div>
 

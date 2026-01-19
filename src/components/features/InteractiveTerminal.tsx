@@ -69,7 +69,7 @@ const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, c
             <div className="flex items-start gap-4">
               <div className="hidden sm:block w-20 h-20 bg-slate-800 rounded-full overflow-hidden shrink-0 border border-slate-600">
                 {/* Placeholder for avatar if available in constants, else generic */}
-                <div className="w-full h-full flex items-center justify-center text-slate-500 text-xs text-center p-1">IMG_USR_01</div>
+                <img src={PROFILE.avatar} alt={PROFILE.name} className="w-full h-full object-cover" />
               </div>
               <div className="space-y-1 flex-1">
                 <div className="text-green-400 font-bold text-base mb-2">USER_IDENTITY_VERIFIED</div>

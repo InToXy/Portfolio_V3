@@ -12,11 +12,24 @@ import CVSection from './components/sections/CVSection';
 import Footer from './components/layout/Footer';
 import ScrollBackground from './components/features/ScrollBackground';
 import { TRANSLATIONS } from './constants';
+import MouseSpotlight from './components/features/MouseSpotlight';
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
   const [lang, setLang] = useState<'fr' | 'en'>('fr');
   const [currentPage, setCurrentPage] = useState<'home' | 'cv'>('home');
+
+  // Scroll to top on initial load
+  useEffect(() => {
+    // Small timeout to ensure browser has painted and restored any previous scroll position
+    // so we can override it
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+
+    // Also try immediately
+    window.scrollTo(0, 0);
+  }, []);
 
   // Initialize theme based on preference or system
   useEffect(() => {
@@ -91,6 +104,7 @@ const App: React.FC = () => {
     return (
       <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300">
         <ScrollBackground />
+        <MouseSpotlight />
         <CVSection onBack={() => handleNavigation('home')} content={content.cv} data={content} />
       </div>
     );
@@ -100,6 +114,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-primary-500 selection:text-white relative">
       <ScrollBackground />
+      <MouseSpotlight />
       <Navbar
         darkMode={darkMode}
         toggleTheme={toggleTheme}

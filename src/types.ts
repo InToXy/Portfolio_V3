@@ -17,6 +17,7 @@ export interface Project {
   downloadUrl?: string;
   image?: string;
   category?: string;
+  deliverables?: { label: string; url: string }[];
 }
 
 export interface SkillCategory {

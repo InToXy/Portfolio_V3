@@ -1,7 +1,7 @@
 
 import React, { useState, useMemo } from 'react';
 import { Project } from '../../types';
-import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap } from 'lucide-react';
+import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap, Download } from 'lucide-react';
 
 interface ProjectsProps {
   content: any;
@@ -290,6 +290,18 @@ const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
                         {content.demo}
                       </a>
                     )}
+                    {selectedProject.deliverables && selectedProject.deliverables.map((item, index) => (
+                      <a
+                        key={index}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 px-5 py-3 bg-emerald-600 text-white rounded-lg font-bold hover:bg-emerald-700 transition-colors shadow-lg shadow-emerald-900/20"
+                      >
+                        <Download size={18} />
+                        {item.label}
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
