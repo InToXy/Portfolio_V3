@@ -34,7 +34,7 @@ const MouseSpotlight: React.FC = () => {
             className="pointer-events-none fixed inset-0 z-30 transition-opacity duration-300"
             style={{
                 opacity: opacity,
-                background: `radial-gradient(600px circle at ${position.x}px ${position.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+                background: `radial-gradient(400px circle at ${position.x}px ${position.y}px, rgba(29, 78, 216, 0.05), transparent 80%)`,
             }}
         />
     );

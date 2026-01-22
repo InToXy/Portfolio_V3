@@ -10,6 +10,7 @@ export interface Project {
   features?: string[];
   techStack?: string[]; // More specific list if needed, or reuse tags
   context?: string;
+  objective?: string;
   results?: string[];
   competencies?: string[];
   githubUrl?: string;

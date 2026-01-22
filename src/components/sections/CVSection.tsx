@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Download, ArrowLeft, Award, GraduationCap, Languages, FileText, CheckCircle2, User, Briefcase, MapPin, Phone, Mail, Github, Linkedin } from 'lucide-react';
+import { Download, ArrowLeft, Award, GraduationCap, Languages, FileText, CheckCircle2, User, Briefcase, MapPin, Phone, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { PROFILE, CERTIFICATIONS, SOCIALS } from '../../constants';
 
 interface CVSectionProps {
@@ -101,6 +101,30 @@ const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
                             </div>
                             <div className="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 group-hover:border-purple-500/50 flex items-center justify-center text-slate-400 group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-all group-hover:scale-110 group-hover:rotate-[-45deg]">
                                 <Download size={20} />
+                            </div>
+                        </div>
+                    </a>
+
+                    {/* Credly Card */}
+                    <a
+                        href={PROFILE.credlyUrl || "https://www.credly.com/users/matheo-pinget"}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group relative p-8 rounded-2xl bg-white/60 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 hover:border-amber-500/50 hover:bg-white dark:hover:bg-slate-900/60 transition-all duration-300 backdrop-blur-md overflow-hidden shadow-sm dark:shadow-none md:col-span-2 lg:col-span-1 lg:col-start-3 lg:row-start-1"
+                    >
+                        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="relative z-10 flex items-center justify-between">
+                            <div className="flex items-center gap-4">
+                                <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-800 group-hover:bg-amber-50 dark:group-hover:bg-amber-500/20 text-slate-700 dark:text-slate-300 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                    <Award size={32} />
+                                </div>
+                                <div>
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Credly Badges</h3>
+                                    <p className="text-sm text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-300 transition-colors">Voir certifications</p>
+                                </div>
+                            </div>
+                            <div className="w-12 h-12 rounded-full border border-slate-200 dark:border-slate-700 group-hover:border-amber-500/50 flex items-center justify-center text-slate-400 group-hover:text-amber-500 dark:group-hover:text-amber-400 transition-all group-hover:scale-110">
+                                <ExternalLink size={20} />
                             </div>
                         </div>
                     </a>
@@ -251,7 +275,18 @@ const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
                                 <div className="p-2 bg-amber-500/10 rounded-lg text-amber-600 dark:text-amber-400">
                                     <Award size={24} />
                                 </div>
-                                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{content.sections.certifications}</h3>
+                                <div className="flex-1">
+                                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">{content.sections.certifications}</h3>
+                                </div>
+                                <a
+                                    href={PROFILE.credlyUrl || "https://www.credly.com/users/matheo-pinget"}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="p-2 text-slate-400 hover:text-amber-500 transition-colors"
+                                    title="Voir sur Credly"
+                                >
+                                    <ExternalLink size={20} />
+                                </a>
                             </div>
                             <div className="space-y-4">
                                 {CERTIFICATIONS.map((cert, i) => (

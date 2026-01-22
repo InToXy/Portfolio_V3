@@ -8,6 +8,7 @@ export const SOCIALS: SocialLink[] = [
 ];
 
 export const CALENDAR_URL = "https://cal.com/matheo-pinget-xadubu";
+export const CREDLY_URL = "https://www.credly.com/users/matheo-pinget";
 
 export const CERTIFICATIONS: Certification[] = [
   {
@@ -26,24 +27,32 @@ export const CERTIFICATIONS: Certification[] = [
 
 const SKILLS_DATA: SkillCategory[] = [
   {
-    title: "DevOps & Cloud",
-    skills: ["Docker", "Terraform", "Ansible", "Azure", "AWS", "VCD", "Traefik Proxy"]
-  },
-  {
     title: "CI/CD & Automation",
     skills: ["GitLab CI", "Bash", "PowerShell", "Git", "GitHub"]
   },
   {
-    title: "Network & Security",
-    skills: ["Cisco", "pfSense", "WatchGuard", "Firewall", "Hardening", "Security Audit"]
+    title: "Network",
+    skills: ["Cisco", "pfSense", "WatchGuard", "Firewall"]
   },
   {
-    title: "Programming & Monitoring",
-    skills: ["Python", "Node.js", "Prometheus", "Grafana", "Zabbix", "API REST", "Centreon", "PRTG", "JWT", "SQL", "HTML", "CSS", "Next.js"]
+    title: "DevOps & Cloud",
+    skills: ["Docker", "Terraform", "Ansible", "Azure", "AWS", "VCD", "Traefik Proxy"]
+  },
+  {
+    title: "Programming",
+    skills: ["Python", "Node.js", "API REST", "JWT", "SQL", "HTML", "CSS", "Next.js"]
+  },
+  {
+    title: "Monitoring",
+    skills: ["Prometheus", "Grafana", "Zabbix", "Centreon", "PRTG"]
   },
   {
     title: "System Admin",
     skills: ["Linux", "Windows Server", "Active Directory", "Bind", "Debian", "Ubuntu", "CentOS"]
+  },
+  {
+    title: "Security",
+    skills: ["Hardening", "Security Audit", "Fail2Ban", "CrowdSec"]
   },
   {
     title: "Project Management",
@@ -67,10 +76,13 @@ export const TRANSLATIONS = {
       available: 'Disponible pour opportunités',
       greeting: 'Bonjour, je suis',
       role: 'Ingénieur DevOps',
+      subtitle: 'Ingénieur DevOps Cloud',
+      rotating_text: ["Randonneur", "Motard", "Voyageur"],
       description: 'Je construis des solutions performantes et sécurisées avec Terraform, Ansible, Docker et GitLab CI.',
       cta_contact: 'Me Contacter',
       cta_calendar: 'Prendre RDV',
       cta_cv: 'Mon CV',
+      cta_certs: 'Certifications',
       location: 'Evian-les-Bains, France'
     },
     about: {
@@ -94,7 +106,8 @@ export const TRANSLATIONS = {
       all: 'Tout',
 
       details: 'Détails',
-      context: 'Contexte & Objectif',
+      context: 'Contexte',
+      objective: 'Objectif',
       features: 'Fonctionnalités Clés',
       competencies: 'Compétences Développées',
       stack: 'Tech Stack',
@@ -220,7 +233,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/big_data.jpg",
         description: "Construction d'un data warehouse pour un groupe hospitalier afin d'analyser et visualiser les données médicales.",
-        longDescription: "Le projet visait à mettre en place une plateforme Big Data complète pour un groupe hospitalier (CHU) afin de créer un data warehouse. L'objectif était d'intégrer, stocker, analyser et visualiser des données hétérogènes, telles que les dossiers médicaux et les flux de patients, pour en extraire des informations stratégiques.\n\nL'architecture Data Lakehouse a été choisie pour traiter les données à travers différentes couches de qualité : Bronze (données brutes), Silver (nettoyées) et Gold (agrégées), prêtes pour la business intelligence.\n\nArchitecture Lakehouse :\n• Intégration de données brutes (Bronze)\n• Nettoyage et transformation (Silver)\n• Agrégation pour l'analyse (Gold)\n\nAnalyse et Visualisation :\n• Orchestration des tâches avec Airflow\n• Traitement distribué avec Spark\n• Visualisation interactive avec Superset",
+        context: "Le projet visait à mettre en place une plateforme Big Data complète pour un groupe hospitalier (CHU) afin de créer un data warehouse.",
+        objective: "L'objectif était d'intégrer, stocker, analyser et visualiser des données hétérogènes, telles que les dossiers médicaux et les flux de patients, pour en extraire des informations stratégiques.\n\nL'architecture Data Lakehouse a été choisie pour traiter les données à travers différentes couches de qualité : Bronze (données brutes), Silver (nettoyées) et Gold (agrégées), prêtes pour la business intelligence.",
         tags: ["Apache Airflow", "Apache Spark (PySpark)", "MinIO", "Apache Hive", "Trino", "Apache Superset", "Docker", "Docker Compose", "Python"],
         features: ["Intégration de données brutes (Bronze)", "Nettoyage et transformation (Silver)", "Agrégation pour l'analyse (Gold)", "Orchestration des tâches avec Airflow", "Traitement distribué avec Spark", "Visualisation interactive avec Superset"],
         competencies: ["Architecture Data Lakehouse", "Traitement de données massives (Big Data)", "Orchestration de flux de données", "Visualisation et Business Intelligence"],
@@ -238,7 +252,8 @@ export const TRANSLATIONS = {
         category: "Projet Perso",
         image: "/Portfolio_V3/images/jackcreativelab.png",
         description: "Création d'une micro-entreprise spécialisée dans la refonte de sites web pour les PME.",
-        longDescription: "Création d'une micro-entreprise spécialisée dans la refonte de sites web pour les PME. L'objectif est de transformer la présence numérique des entreprises avec des designs modernes, élégants et performants. Le site vitrine a été développé pour présenter les services, les projets et attirer des clients.",
+        context: "Création d'une micro-entreprise spécialisée dans la refonte de sites web pour les PME.",
+        objective: "L'objectif est de transformer la présence numérique des entreprises avec des designs modernes, élégants et performants. Le site vitrine a été développé pour présenter les services, les projets et attirer des clients.",
         tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "CI/CD", "GitHub Pages", "SEO", "GDPR"],
         features: ["Design sur mesure et responsive", "Optimisation performance et SEO", "Workflow automatisé", "Conformité légale (RGPD)"],
         competencies: ["Développement Frontend moderne", "Stratégies SEO et performance web", "Gestion de projet entrepreneurial", "Conformité RGPD"],
@@ -251,7 +266,8 @@ export const TRANSLATIONS = {
         category: "Projet Perso",
         image: "/Portfolio_V3/images/serveur_multimedia_personnel.jpg",
         description: "Solution complète de gestion et de diffusion de contenu multimédia (HomeLab).",
-        longDescription: "Ce projet consiste en la conception et le déploiement d'un serveur multimédia personnel robuste et automatisé, permettant de centraliser, organiser et diffuser des films, séries et autres contenus. L'objectif était de créer une infrastructure flexible et facile à maintenir grâce à la conteneurisation.\n\nJ'ai utilisé Docker et Docker Compose pour orchestrer plusieurs services, chacun ayant un rôle spécifique dans la chaîne de gestion multimédia : Plex pour la diffusion, Radarr pour la gestion des films, Jackett pour l'indexation, Transmission pour le téléchargement, et Flaresolverr pour contourner les protections anti-bot. Cette approche modulaire assure une grande scalabilité et une maintenance simplifiée.",
+        context: "Ce projet consiste en la conception et le déploiement d'un serveur multimédia personnel robuste et automatisé, permettant de centraliser, organiser et diffuser des films, séries et autres contenus.",
+        objective: "L'objectif était de créer une infrastructure flexible et facile à maintenir grâce à la conteneurisation.\n\nJ'ai utilisé Docker et Docker Compose pour orchestrer plusieurs services, chacun ayant un rôle spécifique dans la chaîne de gestion multimédia : Plex pour la diffusion, Radarr pour la gestion des films, Jackett pour l'indexation, Transmission pour le téléchargement, et Flaresolverr pour contourner les protections anti-bot.",
         tags: ["Docker", "Docker Compose", "Plex Media Server", "Radarr", "Jackett", "Transmission", "FlareSolverr", "Linux"],
         features: ["Centralisation des films et séries", "Organisation automatique des médias", "Accès et diffusion via Plex", "Récupération automatisée de nouveaux contenus", "Indexation et métadonnées enrichies", "Contournement des protections anti-bot (FlareSolverr)"],
         competencies: ["Maîtrise de Docker et Docker Compose", "Configuration et optimisation de serveurs", "Gestion des volumes et réseaux Docker", "Dépannage d'environnements conteneurisés"],
@@ -263,7 +279,8 @@ export const TRANSLATIONS = {
         category: "Projet Perso",
         image: "/Portfolio_V3/images/bot_trading.webp",
         description: "Bot de trading utilisant l'API Binance pour exécuter des stratégies crypto.",
-        longDescription: "Création d'un bot de trading automatisé utilisant l'API Binance pour exécuter des stratégies de trading sur les cryptomonnaies. L'objectif était de développer un système robuste capable d'analyser les données du marché en temps réel et de prendre des décisions d'achat ou de vente basées sur des indicateurs techniques.\n\nLe projet visait également à mettre en place un système de backtesting pour évaluer l'efficacité des stratégies sur des données historiques, ainsi qu'un dashboard de suivi des performances en temps réel.\n\nArchitecture du Bot :\n• Collecte de données en temps réel via l'API Binance\n• Analyse technique avec Pandas et NumPy\n• Modèles de prédiction avec TensorFlow (optionnel)\n• Exécution des ordres via l'API Binance\n• Stockage des données de trading dans PostgreSQL\n\nVisualisation & Monitoring :\n• Dashboard Grafana pour le suivi des performances\n• Alertes en temps réel (ex: via Telegram)\n• Journalisation des trades et des erreurs",
+        context: "Création d'un bot de trading automatisé utilisant l'API Binance pour exécuter des stratégies de trading sur les cryptomonnaies.",
+        objective: "L'objectif était de développer un système robuste capable d'analyser les données du marché en temps réel et de prendre des décisions d'achat ou de vente basées sur des indicateurs techniques.\n\nLe projet visait également à mettre en place un système de backtesting pour évaluer l'efficacité des stratégies sur des données historiques, ainsi qu'un dashboard de suivi des performances en temps réel.",
         tags: ["Python", "Binance API", "Pandas", "NumPy", "TensorFlow", "Docker", "PostgreSQL", "Grafana"],
         features: ["Stratégies techniques (MACD, RSI)", "Gestion des risques", "Backtesting sur données historiques", "Dashboard Grafana temps réel", "Optimisation des paramètres", "Stop-loss et take-profit automatiques"],
         competencies: ["Analyse de données financières avec Python", "Intégration d'APIs tierces", "Backtesting de stratégies de trading", "Visualisation de données avec Grafana"],
@@ -275,7 +292,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/breezy.png",
         description: "Réseau social léger inspiré de Twitter/X, optimisé pour faibles ressources.",
-        longDescription: "Développement d'un réseau social léger et réactif, inspiré de Twitter/X, conçu pour fonctionner efficacement dans des environnements à faibles ressources et avec une connectivité limitée. L'objectif principal était d'offrir une expérience utilisateur simple et fluide permettant de publier, liker, commenter, suivre et être suivi, tout en maintenant des performances optimales.\n\nBackend - Architecture Microservices :\n• Services indépendants : auth, users, posts, feed\n• Node.js + Express pour chaque microservice\n• MongoDB avec Mongoose pour la persistance\n• Authentification JWT avec refresh tokens\n• Traefik comme API Gateway et Load Balancer\n\nFrontend - Interface Moderne :\n• React.js avec Next.js pour le SSR\n• TailwindCSS avec approche mobile-first\n• Axios pour la communication API\n• Gestion des sessions et routes protégées",
+        context: "Développement d'un réseau social léger et réactif, inspiré de Twitter/X, conçu pour fonctionner efficacement dans des environnements à faibles ressources et avec une connectivité limitée.",
+        objective: "L'objectif principal était d'offrir une expérience utilisateur simple et fluide permettant de publier, liker, commenter, suivre et être suivi, tout en maintenant des performances optimales.\n\nBackend - Architecture Microservices :\n• Services indépendants : auth, users, posts, feed\n• Node.js + Express pour chaque microservice\n• MongoDB avec Mongoose pour la persistance\n• Authentification JWT avec refresh tokens\n• Traefik comme API Gateway et Load Balancer",
         tags: ["Node.js", "Express", "MongoDB", "React", "Next.js", "TailwindCSS", "Docker", "Traefik", "JWT", "Microservices"],
         features: ["Messages courts (280 caractères)", "Fil d'actualité chronologique", "Système de commentaires et réponses", "Système de likes", "Suivi d'utilisateurs", "Profils personnalisés avec bio"],
         competencies: ["Architecture microservices et conteneurisation", "Sécurisation avec JWT et sessions", "Développement full-stack moderne", "Intégration continue et DevOps"],
@@ -291,7 +309,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/easysave.jpg",
         description: "Logiciel de sauvegarde professionnel évolutif développé en C#/.NET.",
-        longDescription: "Projet académique réalisé dans le cadre d'un éditeur logiciel fictif (ProSoft), visant à développer un logiciel de sauvegarde performant et évolutif destiné à des utilisateurs professionnels. L'objectif était de créer une solution fiable et simple d'utilisation, avec de fortes attentes en termes de performance et de maintenabilité du code.\n\nArchitecture MVC :\n• Séparation claire Modèle / Vue / Contrôleur\n• Modularité et maintenabilité du code\n• Évolutivité assurée pour les versions futures",
+        context: "Projet académique réalisé dans le cadre d'un éditeur logiciel fictif (ProSoft), visant à développer un logiciel de sauvegarde performant et évolutif destiné à des utilisateurs professionnels.",
+        objective: "L'objectif était de créer une solution fiable et simple d'utilisation, avec de fortes attentes en termes de performance et de maintenabilité du code.\n\nArchitecture MVC :\n• Séparation claire Modèle / Vue / Contrôleur\n• Modularité et maintenabilité du code\n• Évolutivité assurée pour les versions futures",
         tags: ["C#", ".NET 8.0", "WPF", "MVC", "SHA-256", "JSON", "Doxygen", "JIRA", "Git", "Scrum"],
         features: ["Interface graphique WPF moderne", "Sauvegardes complètes ou différentielles", "Chiffrement SHA-256 intégré", "Détection de logiciels métiers bloquants", "Sauvegardes en parallèle", "Gestion des priorités", "Console déportée (Sockets)"],
         competencies: ["Développement C#/.NET avancé", "Architecture logicielle MVC", "Gestion de projet agile (Scrum)", "Versioning Git et workflow collaboratif"],
@@ -308,7 +327,8 @@ export const TRANSLATIONS = {
         category: "Projet Pro",
         image: "/Portfolio_V3/images/password_vault.png",
         description: "Solution DevSecOps automatisée pour la gestion de mots de passe d'infrastructure.",
-        longDescription: "Développement d'une solution automatisée et sécurisée pour gérer les mots de passe d'infrastructure dans une démarche DevSecOps chez Orange Business.\n\nContexte et Problématique :\nConstat Initial : Transmission manuelle des mots de passe (risques), processus lent, manque de traçabilité, coûts élevés.\n\nPipeline CI/CD Développé :\n1. retrieve_password : Récupération sécurisée depuis HashiCorp Vault\n2. check_delete : Vérification automatique avant suppression\n3. confirm_delete : Suppression validée manuellement\n\nFinalisation : Génération automatique de logs et archives chiffrées.",
+        context: "Développement d'une solution automatisée et sécurisée pour gérer les mots de passe d'infrastructure dans une démarche DevSecOps chez Orange Business.",
+        objective: "Constat Initial : Transmission manuelle des mots de passe (risques), processus lent, manque de traçabilité, coûts élevés.\n\nPipeline CI/CD Développé :\n1. retrieve_password : Récupération sécurisée depuis HashiCorp Vault\n2. check_delete : Vérification automatique avant suppression\n3. confirm_delete : Suppression validée manuellement",
         tags: ["HashiCorp Vault", "Ansible", "GitLab CI/CD", "OpenSSL", "AES-256", "WSL", "DevSecOps", "Automation"],
         features: ["Récupération automatisée des mots de passe", "Suppression sécurisée et contrôlée", "Chiffrement AES-256 des transferts", "Traçabilité complète (logs)", "Validation manuelle des suppressions"],
         competencies: ["Conception de rôles Ansible modulaires", "Intégration de la sécurité dans CI/CD", "Expérience DevOps/DevSecOps", "Gestion d'infrastructures sécurisées"],
@@ -324,7 +344,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/ademe.webp",
         description: "Projet de recherche opérationnelle pour réduire les émissions CO₂ des transports.",
-        longDescription: "Projet universitaire en collaboration avec l'ADEME pour étudier l'optimisation des tournées de livraison, une variante complexe du problème du Voyageur de Commerce (TSP). Répondre à un appel à projet pour réduire la consommation énergétique et les émissions de CO₂ liées aux transports de marchandises.\n\nMéthodes d'Optimisation Implémentées :\n• Méthode Exacte (PLNE)\n• Métaheuristiques Avancées : Recuit Simulé, Algorithme Génétique, Colonie de Fourmis",
+        context: "Projet universitaire en collaboration avec l'ADEME pour étudier l'optimisation des tournées de livraison, une variante complexe du problème du Voyageur de Commerce (TSP).",
+        objective: "Répondre à un appel à projet pour réduire la consommation énergétique et les émissions de CO₂ liées aux transports de marchandises.\n\nMéthodes d'Optimisation Implémentées :\n• Méthode Exacte (PLNE)\n• Métaheuristiques Avancées : Recuit Simulé, Algorithme Génétique, Colonie de Fourmis",
         tags: ["Python", "PLNE", "Algorithmes Génétiques", "Recuit Simulé", "Colonie de Fourmis", "Optimisation", "Recherche Opérationnelle"],
         features: ["Modélisation en Graphe", "Prise en compte de contraintes complexes (temps, circuits)", "Comparaison systématique des performances", "Génération de matrices aléatoires"],
         competencies: ["Modélisation mathématique (NP-difficile)", "Implémentation d'algorithmes complexes", "Analyse comparative algorithmique", "Programmation Python scientifique"],
@@ -340,7 +361,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/openstack-cloud-infrastructure-dashboard-with-virt.png",
         description: "Construction d'un réseau informatique complet pour une petite structure.",
-        longDescription: "Ce projet consistait à créer une infrastructure cloud complète pour une petite structure en utilisant OpenStack. L'objectif était de démontrer la capacité à concevoir, déployer et gérer un environnement virtualisé professionnel.\n\nL'infrastructure incluait la mise en place de serveurs virtuels sous différents systèmes d'exploitation (CentOS 8, Windows 10), la configuration d'un réseau privé sécurisé, et l'implémentation de services essentiels (Apache, MySQL, Nextcloud).",
+        context: "Ce projet consistait à créer une infrastructure cloud complète pour une petite structure en utilisant OpenStack.",
+        objective: "L'objectif était de démontrer la capacité à concevoir, déployer et gérer un environnement virtualisé professionnel.\n\nL'infrastructure incluait la mise en place de serveurs virtuels sous différents systèmes d'exploitation (CentOS 8, Windows 10), la configuration d'un réseau privé sécurisé, et l'implémentation de services essentiels (Apache, MySQL, Nextcloud).",
         tags: ["OpenStack", "CentOS 8", "Windows 10", "DNS", "Apache", "MySQL", "Nextcloud", "Prometheus", "Grafana"],
         features: ["Réseau privé avec DHCP/DNS", "Routage inter-réseaux sécurisé", "Gestion des utilisateurs et accès", "Serveur web Apache + MySQL", "Nextcloud pour stockage collaboratif", "Monitoring complet avec alertes automatisées"],
         competencies: ["Administration OpenStack et virtualisation", "Configuration réseau avancée", "Déploiement et gestion de services", "Monitoring et observabilité"],
@@ -352,7 +374,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/network-security-audit-dashboard-with-vulnerabilit.png",
         description: "Infrastructure d'entreprise complète selon les recommandations ANSSI.",
-        longDescription: "Ce projet ambitieux consistait à concevoir et déployer une infrastructure d'entreprise complète en respectant scrupuleusement les recommandations de l'ANSSI. L'architecture incluait une DMZ pour isoler les services publics, un système d'information interne sécurisé, et plusieurs couches de protection avec des firewalls redondants.\n\nDéfense en Profondeur :\n• Multiples couches de sécurité : firewalls, IDS/IPS, antivirus\n• Segmentation réseau avec VLANs sécurisés\n• Contrôle d'accès et chiffrement des données",
+        context: "Ce projet ambitieux consistait à concevoir et déployer une infrastructure d'entreprise complète en respectant scrupuleusement les recommandations de l'ANSSI.",
+        objective: "L'architecture incluait une DMZ pour isoler les services publics, un système d'information interne sécurisé, et plusieurs couches de protection avec des firewalls redondants.\n\nDéfense en Profondeur :\n• Multiples couches de sécurité : firewalls, IDS/IPS, antivirus\n• Segmentation réseau avec VLANs sécurisés\n• Contrôle d'accès et chiffrement des données",
         tags: ["ESXI 6.7", "Cisco", "WatchGuard", "StormShield", "Veeam", "PRTG", "Splunk", "Active Directory", "BIND", "Apache"],
         features: ["DMZ avec serveurs web publics", "Firewalls WatchGuard et StormShield", "Active Directory avec GPO sécurisées", "PRTG pour monitoring réseau", "Splunk pour analyse des logs", "Veeam pour sauvegarde centralisée"],
         competencies: ["Architecture de sécurité d'entreprise", "Configuration de firewalls et IDS/IPS", "Gestion des identités et des accès", "Monitoring et analyse de sécurité"],
@@ -364,7 +387,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/web-application-penetration-testing-with-burp-suit.png",
         description: "Apprentissage autonome des techniques de test d'intrusion.",
-        longDescription: "Ce projet d'apprentissage autonome avait pour objectif d'acquérir les bases du pentesting éthique. Il s'agissait de comprendre les méthodologies d'audit de sécurité et de maîtriser les outils essentiels utilisés par les professionnels de la cybersécurité. Le projet incluait la résolution d'un questionnaire technique complexe nécessitant l'identification et l'exploitation de vulnérabilités sur différents systèmes dans un environnement de laboratoire contrôlé.",
+        context: "Ce projet d'apprentissage autonome avait pour objectif d'acquérir les bases du pentesting éthique.",
+        objective: "Il s'agissait de comprendre les méthodologies d'audit de sécurité et de maîtriser les outils essentiels utilisés par les professionnels de la cybersécurité. Le projet incluait la résolution d'un questionnaire technique complexe nécessitant l'identification et l'exploitation de vulnérabilités sur différents systèmes dans un environnement de laboratoire contrôlé.",
         tags: ["Kali Linux", "Metasploit", "Nmap", "Hydra", "SQLmap", "Burp Suite", "Wireshark", "John the Ripper"],
         features: ["Reconnaissance et Exploitation (Nmap, Metasploit, Hydra)", "Analyse et Reporting (Burp Suite, SQLmap)", "Escalade de privilèges sur Linux et Windows", "Documentation et recommandations de remédiation"],
         competencies: ["Tests d'intrusion éthiques", "Analyse de vulnérabilités web/réseau", "Utilisation d'outils de sécurité avancés", "Méthodologies d'audit de sécurité"],
@@ -376,7 +400,8 @@ export const TRANSLATIONS = {
         category: "Projet École",
         image: "/Portfolio_V3/images/python-data-analysis-dashboard-with-charts--graphs.png",
         description: "Analyse et visualisation de données de calendrier.",
-        longDescription: "Ce projet consistait à développer un script Python sophistiqué pour analyser et traiter des données issues de fichiers de calendrier au format CSV. L'objectif était de créer un outil capable d'extraire, filtrer et présenter des informations spécifiques sur les événements et réunions. Le défi principal était de transformer des données brutes en informations exploitables, présentées sous forme de tableaux Markdown et de graphiques interactifs.",
+        context: "Ce projet consistait à développer un script Python sophistiqué pour analyser et traiter des données issues de fichiers de calendrier au format CSV.",
+        objective: "L'objectif était de créer un outil capable d'extraire, filtrer et présenter des informations spécifiques sur les événements et réunions. Le défi principal était de transformer des données brutes en informations exploitables, présentées sous forme de tableaux Markdown et de graphiques interactifs.",
         tags: ["Python", "Pandas", "Matplotlib", "CSV", "Markdown", "HTML/CSS", "Jupyter", "NumPy"],
         features: ["Parsing automatique de fichiers CSV", "Filtrage intelligent par type et date", "Génération de graphiques Matplotlib", "Tableaux Markdown formatés", "Export HTML/CSS personnalisé"],
         competencies: ["Manipulation de données avec Pandas", "Visualisation avec Matplotlib", "Développement Python orienté objet", "Tests unitaires et documentation"],
@@ -399,10 +424,13 @@ export const TRANSLATIONS = {
       available: 'Available for opportunities',
       greeting: 'Hello, I am',
       role: 'DevOps Engineer',
+      subtitle: 'Cloud DevOps Engineer',
+      rotating_text: ["Hiker", "Biker", "Traveler"],
       description: 'I build performant and secure solutions with Terraform, Ansible, Docker, and GitLab CI.',
       cta_contact: 'Contact Me',
       cta_calendar: 'Book a Meeting',
       cta_cv: 'My Resume',
+      cta_certs: 'Certifications',
       location: 'Evian-les-Bains, France'
     },
     about: {
@@ -426,7 +454,8 @@ export const TRANSLATIONS = {
       all: 'All',
 
       details: 'Details',
-      context: 'Context & Goal',
+      context: 'Context',
+      objective: 'Objective',
       features: 'Key Features',
       competencies: 'Key Competencies',
       stack: 'Tech Stack',
@@ -552,7 +581,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/big_data.jpg",
         description: "Building a data warehouse for a hospital group to analyze and visualize medical data.",
-        longDescription: "The project aimed to implement a complete Big Data platform for a hospital group (University Hospital) to create a data warehouse. The objective was to integrate, store, analyze, and visualize heterogeneous data, such as medical records and patient flows, to extract strategic insights.\n\nThe Data Lakehouse architecture was chosen to process data through different quality layers: Bronze (raw data), Silver (cleaned), and Gold (aggregated), ready for Business Intelligence.\n\nLakehouse Architecture:\n• Raw data integration (Bronze)\n• Cleaning and transformation (Silver)\n• Aggregation for analysis (Gold)\n\nAnalysis and Visualization:\n• Task orchestration with Airflow\n• Distributed processing with Spark\n• Interactive visualization with Superset",
+        context: "The project aimed to implement a complete Big Data platform for a hospital group (University Hospital) to create a data warehouse.",
+        objective: "The objective was to integrate, store, analyze, and visualize heterogeneous data, such as medical records and patient flows, to extract strategic insights.\n\nThe Data Lakehouse architecture was chosen to process data through different quality layers: Bronze (raw data), Silver (cleaned), and Gold (aggregated), ready for Business Intelligence.",
         tags: ["Apache Airflow", "Apache Spark (PySpark)", "MinIO", "Apache Hive", "Trino", "Apache Superset", "Docker", "Docker Compose", "Python"],
         features: ["Raw data integration (Bronze)", "Cleaning and transformation (Silver)", "Aggregation for analysis (Gold)", "Task orchestration with Airflow", "Distributed processing with Spark", "Interactive visualization with Superset"],
         competencies: ["Data Lakehouse Architecture", "Big Data Processing", "Data Workflow Orchestration", "Visualization and Business Intelligence"],
@@ -570,7 +600,8 @@ export const TRANSLATIONS = {
         category: "Personal Project",
         image: "/Portfolio_V3/images/jackcreativelab.png",
         description: "Creation of a micro-enterprise specializing in website redesign for SMEs.",
-        longDescription: "Creation of a micro-enterprise specializing in website redesign for SMEs. The goal is to transform the digital presence of businesses with modern, elegant, and high-performance designs. The showcase site was developed to present services, projects, and attract clients.",
+        context: "Creation of a micro-enterprise specializing in website redesign for SMEs.",
+        objective: "The goal is to transform the digital presence of businesses with modern, elegant, and high-performance designs. The showcase site was developed to present services, projects, and attract clients.",
         tags: ["React", "Next.js", "TypeScript", "Tailwind CSS", "CI/CD", "GitHub Pages", "SEO", "GDPR"],
         features: ["Custom and responsive design", "Performance and SEO optimization", "Automated workflow", "GDPR compliance"],
         competencies: ["Modern Frontend Development", "SEO & Web Performance Strategies", "Entrepreneurial Project Management", "GDPR Compliance"],
@@ -583,7 +614,8 @@ export const TRANSLATIONS = {
         category: "Personal Project",
         image: "/Portfolio_V3/images/serveur_multimedia_personnel.jpg",
         description: "Complete solution for managing and streaming multimedia content (HomeLab).",
-        longDescription: "This project involves designing and deploying a robust and automated personal media server to centralize, organize, and stream movies, series, and other content. The goal was to create a flexible and easy-to-maintain infrastructure using containerization.\n\nI used Docker and Docker Compose to orchestrate multiple services, each playing a specific role in the media management chain: Plex for streaming, Radarr for movie management, Jackett for indexing, Transmission for downloading, and Flaresolverr to bypass anti-bot protections. This modular approach ensures high scalability and simplified maintenance.",
+        context: "This project involves designing and deploying a robust and automated personal media server to centralize, organize, and stream movies, series, and other content.",
+        objective: "The goal was to create a flexible and easy-to-maintain infrastructure using containerization.\n\nI used Docker and Docker Compose to orchestrate multiple services, each playing a specific role in the media management chain: Plex for streaming, Radarr for movie management, Jackett for indexing, Transmission for downloading, and Flaresolverr to bypass anti-bot protections.",
         tags: ["Docker", "Docker Compose", "Plex Media Server", "Radarr", "Jackett", "Transmission", "FlareSolverr", "Linux"],
         features: ["Centralization of movies and series", "Automatic media organization", "Access and streaming via Plex", "Automated content retrieval", "Indexing and enriched metadata", "Anti-bot protection bypass (FlareSolverr)"],
         competencies: ["Docker & Docker Compose Mastery", "Server Configuration & Optimization", "Docker Volume & Network Management", "Containerized Environment Troubleshooting"],
@@ -595,7 +627,8 @@ export const TRANSLATIONS = {
         category: "Personal Project",
         image: "/Portfolio_V3/images/bot_trading.webp",
         description: "Trading bot using Binance API to execute crypto strategies.",
-        longDescription: "Creation of an automated trading bot using the Binance API to execute trading strategies on cryptocurrencies. The objective was to develop a robust system capable of analyzing market data in real-time and making buy/sell decisions based on technical indicators.\n\nThe project also aimed to implement a backtesting system to evaluate strategy effectiveness on historical data, as well as a dashboard for real-time performance monitoring.\n\nBot Architecture:\n• Real-time data collection via Binance API\n• Technical analysis with Pandas and NumPy\n• Prediction models with TensorFlow (optional)\n• Order execution via Binance API\n• Trading data storage in PostgreSQL\n\nVisualization & Monitoring:\n• Grafana dashboard for performance tracking\n• Real-time alerts (e.g., via Telegram)\n• Trade and error logging",
+        context: "Creation of an automated trading bot using the Binance API to execute trading strategies on cryptocurrencies.",
+        objective: "The objective was to develop a robust system capable of analyzing market data in real-time and making buy/sell decisions based on technical indicators.\n\nThe project also aimed to implement a backtesting system to evaluate strategy effectiveness on historical data, as well as a dashboard for real-time performance monitoring.",
         tags: ["Python", "Binance API", "Pandas", "NumPy", "TensorFlow", "Docker", "PostgreSQL", "Grafana"],
         features: ["Technical strategies (MACD, RSI)", "Risk management", "Backtesting on historical data", "Real-time Grafana dashboard", "Parameter optimization", "Automatic stop-loss and take-profit"],
         competencies: ["Financial Data Analysis with Python", "Third-party API Integration", "Trading Strategy Backtesting", "Data Visualization with Grafana"],
@@ -607,7 +640,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/breezy.png",
         description: "Lightweight social network inspired by Twitter/X, optimized for low resources.",
-        longDescription: "Development of a lightweight and responsive social network, inspired by Twitter/X, designed to run efficiently in low-resource environments with limited connectivity. The main objective was to offer a simple and fluid user experience allowing posting, liking, commenting, following, and being followed, while maintaining optimal performance.\n\nBackend - Microservices Architecture:\n• Independent services: auth, users, posts, feed\n• Node.js + Express for each microservice\n• MongoDB with Mongoose for persistence\n• JWT Authentication with refresh tokens\n• Traefik as API Gateway and Load Balancer\n\nFrontend - Modern Interface:\n• React.js with Next.js for SSR\n• TailwindCSS with mobile-first approach\n• Axios for API communication\n• Session management and protected routes",
+        context: "Development of a lightweight and responsive social network, inspired by Twitter/X, designed to run efficiently in low-resource environments with limited connectivity.",
+        objective: "The main objective was to offer a simple and fluid user experience allowing posting, liking, commenting, following, and being followed, while maintaining optimal performance.\n\nBackend - Microservices Architecture:\n• Independent services: auth, users, posts, feed\n• Node.js + Express for each microservice\n• MongoDB with Mongoose for persistence\n• JWT Authentication with refresh tokens\n• Traefik as API Gateway and Load Balancer",
         tags: ["Node.js", "Express", "MongoDB", "React", "Next.js", "TailwindCSS", "Docker", "Traefik", "JWT", "Microservices"],
         features: ["Short messages (280 chars)", "Chronological feed", "Comment and reply system", "Like system", "User following", "Custom profiles with bio"],
         competencies: ["Microservices Architecture & Containerization", "Security with JWT & Sessions", "Modern Full-stack Development", "CI/CD & DevOps Integration"],
@@ -623,7 +657,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/easysave.jpg",
         description: "Scalable professional backup software developed in C#/.NET.",
-        longDescription: "Academic project realized for a fictitious software publisher (ProSoft), aiming to develop high-performance and scalable backup software for professional users. The goal was to create a reliable and easy-to-use solution, with high expectations regarding performance and code maintainability.\n\nMVC Architecture:\n• Clear Model / View / Controller separation\n• Code modularity and maintainability\n• Scalability ensured for future versions",
+        context: "Academic project realized for a fictitious software publisher (ProSoft), aiming to develop high-performance and scalable backup software for professional users.",
+        objective: "The goal was to create a reliable and easy-to-use solution, with high expectations regarding performance and code maintainability.\n\nMVC Architecture:\n• Clear Model / View / Controller separation\n• Code modularity and maintainability\n• Scalability ensured for future versions",
         tags: ["C#", ".NET 8.0", "WPF", "MVC", "SHA-256", "JSON", "Doxygen", "JIRA", "Git", "Scrum"],
         features: ["Modern WPF GUI", "Full or differential backups", "Integrated SHA-256 encryption", "Blocking business software detection", "Parallel backups", "Priority management", "Remote console (Sockets)"],
         competencies: ["Advanced C#/.NET Development", "MVC Software Architecture", "Agile Project Management (Scrum)", "Git Versioning & Collaborative Workflow"],
@@ -640,7 +675,8 @@ export const TRANSLATIONS = {
         category: "Professional Project",
         image: "/Portfolio_V3/images/password_vault.png",
         description: "Automated DevSecOps solution for infrastructure password management.",
-        longDescription: "Development of an automated and secure solution to manage infrastructure passwords within a DevSecOps approach at Orange Business.\n\nContext and Problem:\nInitial State: Manual password transmission (risks), slow process, lack of traceability, high costs.\n\nDeveloped CI/CD Pipeline:\n1. retrieve_password: Secure retrieval from HashiCorp Vault\n2. check_delete: Automatic verification before deletion\n3. confirm_delete: Manually validated deletion\n\nFinalization: Automatic generation of logs and encrypted archives.",
+        context: "Development of an automated and secure solution to manage infrastructure passwords within a DevSecOps approach at Orange Business.",
+        objective: "Context and Problem:\nInitial State: Manual password transmission (risks), slow process, lack of traceability, high costs.\n\nDeveloped CI/CD Pipeline:\n1. retrieve_password: Secure retrieval from HashiCorp Vault\n2. check_delete: Automatic verification before deletion\n3. confirm_delete: Manually validated deletion",
         tags: ["HashiCorp Vault", "Ansible", "GitLab CI/CD", "OpenSSL", "AES-256", "WSL", "DevSecOps", "Automation"],
         features: ["Automated password retrieval", "Secure and controlled deletion", "AES-256 transfer encryption", "Full traceability (logs)", "Manual deletion validation"],
         competencies: ["Modular Ansible Role Design", "Security Integration in CI/CD", "DevOps/DevSecOps Experience", "Secure Infrastructure Management"],
@@ -656,7 +692,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/ademe.webp",
         description: "Operations research project to reduce CO₂ emissions in transport.",
-        longDescription: "University project in collaboration with ADEME to study delivery route optimization, a complex variant of the Traveling Salesman Problem (TSP). Responding to a call for projects to reduce energy consumption and CO₂ emissions related to freight transport.\n\nImplemented Optimization Methods:\n• Exact Method (ILP)\n• Advanced Metaheuristics: Simulated Annealing, Genetic Algorithm, Ant Colony Optimization",
+        context: "University project in collaboration with ADEME to study delivery route optimization, a complex variant of the Traveling Salesman Problem (TSP).",
+        objective: "Responding to a call for projects to reduce energy consumption and CO₂ emissions related to freight transport.\n\nImplemented Optimization Methods:\n• Exact Method (ILP)\n• Advanced Metaheuristics: Simulated Annealing, Genetic Algorithm, Ant Colony Optimization",
         tags: ["Python", "PLNE", "Algorithmes Génétiques", "Recuit Simulé", "Colonie de Fourmis", "Optimisation", "Recherche Opérationnelle"],
         features: ["Graph Modeling", "Complex constraints handling (time, circuits)", "Systematic performance comparison", "Random matrix generation"],
         competencies: ["Mathematical Modeling (NP-Hard)", "Complex Algorithm Implementation", "Comparative Algorithmic Analysis", "Scientific Python Programming"],
@@ -672,7 +709,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/openstack-cloud-infrastructure-dashboard-with-virt.png",
         description: "Construction of a complete computer network for a small structure.",
-        longDescription: "This project consisted of creating a complete cloud infrastructure for a small structure using OpenStack. The goal was to demonstrate the ability to design, deploy, and manage a professional virtualized environment.\n\nThe infrastructure included setting up virtual servers under different operating systems (CentOS 8, Windows 10), configuring a secure private network, and implementing essential services (Apache, MySQL, Nextcloud).",
+        context: "This project consisted of creating a complete cloud infrastructure for a small structure using OpenStack.",
+        objective: "The goal was to demonstrate the ability to design, deploy, and manage a professional virtualized environment.\n\nThe infrastructure included setting up virtual servers under different operating systems (CentOS 8, Windows 10), configuring a secure private network, and implementing essential services (Apache, MySQL, Nextcloud).",
         tags: ["OpenStack", "CentOS 8", "Windows 10", "DNS", "Apache", "MySQL", "Nextcloud", "Prometheus", "Grafana"],
         features: ["Private network with DHCP/DNS", "Secure inter-network routing", "User and access management", "Apache + MySQL web server", "Nextcloud for collaborative storage", "Complete monitoring with automated alerts"],
         competencies: ["OpenStack Administration & Virtualization", "Advanced Network Configuration", "Service Deployment & Management", "Monitoring & Observability"],
@@ -684,7 +722,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/network-security-audit-dashboard-with-vulnerabilit.png",
         description: "Secure enterprise infrastructure design according to ANSSI recommendations.",
-        longDescription: "This ambitious project consisted of designing and deploying a complete enterprise infrastructure, scrupulously respecting ANSSI recommendations. The architecture included a DMZ to isolate public services, a secure internal information system, and multiple protection layers with redundant firewalls.\n\nDefense in Depth:\n• Multiple security layers: firewalls, IDS/IPS, antivirus\n• Network segmentation with secure VLANs\n• Access control and data encryption",
+        context: "This ambitious project consisted of designing and deploying a complete enterprise infrastructure, scrupulously respecting ANSSI recommendations.",
+        objective: "The architecture included a DMZ to isolate public services, a secure internal information system, and multiple protection layers with redundant firewalls.\n\nDefense in Depth:\n• Multiple security layers: firewalls, IDS/IPS, antivirus\n• Network segmentation with secure VLANs\n• Access control and data encryption",
         tags: ["ESXI 6.7", "Cisco", "WatchGuard", "StormShield", "Veeam", "PRTG", "Splunk", "Active Directory", "BIND", "Apache"],
         features: ["DMZ with public web servers", "WatchGuard and StormShield Firewalls", "Active Directory with secure GPOs", "PRTG for network monitoring", "Splunk for log analysis", "Veeam for centralized backup"],
         competencies: ["Enterprise Security Architecture", "Firewall & IDS/IPS Configuration", "Identity & Access Management", "Security Monitoring & Analysis"],
@@ -696,7 +735,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/web-application-penetration-testing-with-burp-suit.png",
         description: "Self-learning project on penetration testing techniques.",
-        longDescription: "This self-learning project aimed to acquire the basics of ethical pentesting. It involved understanding security audit methodologies and mastering essential tools used by cybersecurity professionals. The project included solving a complex technical questionnaire requiring the identification and exploitation of vulnerabilities on various systems in a controlled laboratory environment.",
+        context: "This self-learning project aimed to acquire the basics of ethical pentesting.",
+        objective: "It involved understanding security audit methodologies and mastering essential tools used by cybersecurity professionals. The project included solving a complex technical questionnaire requiring the identification and exploitation of vulnerabilities on various systems in a controlled laboratory environment.",
         tags: ["Kali Linux", "Metasploit", "Nmap", "Hydra", "SQLmap", "Burp Suite", "Wireshark", "John the Ripper"],
         features: ["Reconnaissance and Exploitation (Nmap, Metasploit, Hydra)", "Analysis and Reporting (Burp Suite, SQLmap)", "Privilege escalation on Linux and Windows", "Documentation and remediation recommendations"],
         competencies: ["Ethical Penetration Testing", "Web/Network Vulnerability Analysis", "Advanced Security Tool Usage", "Security Audit Methodologies"],
@@ -708,7 +748,8 @@ export const TRANSLATIONS = {
         category: "School Project",
         image: "/Portfolio_V3/images/python-data-analysis-dashboard-with-charts--graphs.png",
         description: "Analysis and visualization of calendar data.",
-        longDescription: "This project consisted of developing a sophisticated Python script to analyze and process data from calendar files in CSV format. The goal was to create a tool capable of extracting, filtering, and presenting specific information about events and meetings. The main challenge was to transform raw data into actionable insights, presented in the form of Markdown tables and interactive charts.",
+        context: "This project consisted of developing a sophisticated Python script to analyze and process data from calendar files in CSV format.",
+        objective: "The goal was to create a tool capable of extracting, filtering, and presenting specific information about events and meetings. The main challenge was to transform raw data into actionable insights, presented in the form of Markdown tables and interactive charts.",
         tags: ["Python", "Pandas", "Matplotlib", "CSV", "Markdown", "HTML/CSS", "Jupyter", "NumPy"],
         features: ["Automatic CSV file parsing", "Intelligent filtering by type and date", "Matplotlib chart generation", "Formatted Markdown tables", "Custom HTML/CSS export"],
         competencies: ["Data Manipulation with Pandas", "Visualization with Matplotlib", "Object-Oriented Python Development", "Unit Testing & Documentation"],
@@ -729,7 +770,8 @@ export const PROFILE = {
   avatar: "/Portfolio_V3/images/pp.jpg",
   // Map other fields to TRANSLATIONS.fr for fallback
   tagline: TRANSLATIONS.fr.hero.description,
-  about: TRANSLATIONS.fr.about.description
+  about: TRANSLATIONS.fr.about.description,
+  credlyUrl: CREDLY_URL,
 };
 
 // Kept for backward compat with components not yet updated, but will use SKILLS_DATA from translations

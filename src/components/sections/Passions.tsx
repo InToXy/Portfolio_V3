@@ -12,7 +12,7 @@ interface PassionsProps {
 
 const Passions: React.FC<PassionsProps> = ({ content }) => {
   return (
-    <section className="py-20 bg-transparent transition-colors">
+    <section id="passions" className="py-20 bg-transparent transition-colors">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12 reveal-on-scroll">
           <h2 className="text-sm font-bold tracking-widest text-primary-600 dark:text-primary-400 uppercase mb-3">{content.tag}</h2>

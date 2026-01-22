@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Download, Linkedin, Github, Mail, Calendar } from 'lucide-react';
+import { ArrowRight, Download, Linkedin, Github, Mail, Calendar, Award } from 'lucide-react';
 import { PROFILE, SOCIALS, CALENDAR_URL } from '../../constants';
 import PipelineAnimation from '../features/PipelineAnimation';
+import { Particles } from '../ui/Particles';
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
@@ -10,14 +11,15 @@ interface HeroProps {
 
 const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
   const [currentPassion, setCurrentPassion] = useState(0);
-  const passions = ["Randonneur", "Motard", "Voyageur"];
+  const passions = content.rotating_text || ["Randonneur", "Motard", "Voyageur"]; // Fallback if not yet loaded
+
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentPassion((prev) => (prev + 1) % passions.length);
     }, 2500);
     return () => clearInterval(interval);
-  }, []);
+  }, [passions.length]);
 
   const handleCVClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -35,10 +37,17 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-visible bg-transparent">
+    <section id="home" className="relative min-h-screen flex items-center justify-center pt-20 overflow-visible bg-transparent">
 
       {/* Abstract Background Mesh */}
       <div className="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
+        <Particles
+          className="absolute inset-0"
+          quantity={100}
+          ease={80}
+          color="#64748b"
+          refresh
+        />
         <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-primary-500/10 to-transparent opacity-40 blur-3xl rounded-bl-full" />
         <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-purple-500/10 to-transparent opacity-30 blur-3xl rounded-tr-full" />
         <div className="absolute inset-0 bg-grid-slate-200/50 dark:bg-grid-slate-800/20 [mask-image:radial-gradient(ellipse_at_center,white,transparent_70%)]" />
@@ -62,7 +71,7 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
             </h1>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-lg md:text-xl font-medium text-slate-600 dark:text-slate-400">
-              <span className="text-primary-600 dark:text-primary-400 font-bold">Ingénieur DevOps Cloud</span>
+              <span className="text-primary-600 dark:text-primary-400 font-bold">{content.subtitle}</span>
               <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
 
               <div className="relative h-8 overflow-hidden w-40">
@@ -104,11 +113,17 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
             <button onClick={handleCVClick} className="inline-flex items-center gap-2 px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-primary-600 dark:hover:text-primary-400 font-semibold transition-colors">
               {content.cta_cv} <Download size={18} />
             </button>
+
+            {/* Quaternary CTA - Credly */}
+            <a href={PROFILE.credlyUrl || "https://www.credly.com/users/matheo-pinget"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 px-6 py-3 text-slate-600 dark:text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 font-semibold transition-colors">
+              {content.cta_certs} <Award size={18} />
+            </a>
           </div>
 
           <div className="flex items-center gap-6 text-slate-400 dark:text-slate-500 pt-8">
             <a href={SOCIALS[0].url} target="_blank" rel="noopener noreferrer" className="hover:text-slate-900 dark:hover:text-white transition-colors transform hover:scale-110"><Github size={24} /></a>
             <a href={SOCIALS[1].url} target="_blank" rel="noopener noreferrer" className="hover:text-[#0077b5] transition-colors transform hover:scale-110"><Linkedin size={24} /></a>
+            <a href={PROFILE.credlyUrl || "https://www.credly.com/users/matheo-pinget"} target="_blank" rel="noopener noreferrer" className="hover:text-amber-500 transition-colors transform hover:scale-110"><Award size={24} /></a>
             <a href={`mailto:${PROFILE.email}`} className="hover:text-red-500 transition-colors transform hover:scale-110"><Mail size={24} /></a>
             <span className="h-6 w-px bg-slate-200 dark:bg-slate-800 mx-2"></span>
             <span className="text-sm font-mono flex items-center gap-2">

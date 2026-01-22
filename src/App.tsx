@@ -1,6 +1,7 @@
 
+
 import React, { useState, useEffect } from 'react';
-import Navbar from './components/layout/Navbar';
+import DockNavbar from './components/layout/DockNavbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
@@ -115,7 +116,7 @@ const App: React.FC = () => {
     <div className="min-h-screen font-sans text-slate-900 dark:text-slate-100 transition-colors duration-300 selection:bg-primary-500 selection:text-white relative">
       <ScrollBackground />
       <MouseSpotlight />
-      <Navbar
+      <DockNavbar
         darkMode={darkMode}
         toggleTheme={toggleTheme}
         onNavigate={handleNavigation}
