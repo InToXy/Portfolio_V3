@@ -48,7 +48,7 @@ const DockNavbar: React.FC<DockNavbarProps> = ({
     };
 
     return (
-        <div className="fixed top-4 left-0 right-0 z-50 pointer-events-none flex justify-center">
+        <div className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex justify-center">
             <div className="pointer-events-auto">
                 <Dock iconMagnification={60} iconDistance={100} className="bg-white/70 dark:bg-slate-950/70 border-slate-200 dark:border-slate-800 shadow-xl backdrop-blur-xl">
                     <DockIcon onClick={() => scrollToSection('home')}>

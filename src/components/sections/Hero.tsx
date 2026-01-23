@@ -3,6 +3,7 @@ import { ArrowRight, Download, Linkedin, Github, Mail, Calendar, Award } from 'l
 import { PROFILE, SOCIALS, CALENDAR_URL } from '../../constants';
 import PipelineAnimation from '../features/PipelineAnimation';
 import { Particles } from '../ui/Particles';
+import { BlurFade } from '../ui/blur-fade';
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
@@ -66,28 +67,32 @@ const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
           </div>
 
           <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white">
-              {PROFILE.name}
-            </h1>
+            <BlurFade delay={0.25} inView>
+              <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+                {PROFILE.name}
+              </h1>
+            </BlurFade>
 
-            <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-lg md:text-xl font-medium text-slate-600 dark:text-slate-400">
-              <span className="text-primary-600 dark:text-primary-400 font-bold">{content.subtitle}</span>
-              <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
+            <BlurFade delay={0.25 * 2} inView>
+              <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-lg md:text-xl font-medium text-slate-600 dark:text-slate-400">
+                <span className="text-primary-600 dark:text-primary-400 font-bold">{content.subtitle}</span>
+                <span className="hidden md:inline w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span>
 
-              <div className="relative h-8 overflow-hidden w-40">
-                {passions.map((passion, idx) => (
-                  <span
-                    key={passion}
-                    className={`absolute left-0 transition-all duration-500 transform
-                            ${idx === currentPassion ? 'top-0 opacity-100 translate-y-0' : 'top-8 opacity-0 translate-y-4'}
-                            ${idx === (currentPassion - 1 + passions.length) % passions.length ? '-top-8 opacity-0 -translate-y-4' : ''}
-                        `}
-                  >
-                    {passion}
-                  </span>
-                ))}
+                <div className="relative h-8 overflow-hidden w-40">
+                  {passions.map((passion, idx) => (
+                    <span
+                      key={passion}
+                      className={`absolute left-0 transition-all duration-500 transform
+                              ${idx === currentPassion ? 'top-0 opacity-100 translate-y-0' : 'top-8 opacity-0 translate-y-4'}
+                              ${idx === (currentPassion - 1 + passions.length) % passions.length ? '-top-8 opacity-0 -translate-y-4' : ''}
+                          `}
+                    >
+                      {passion}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
+            </BlurFade>
           </div>
 
           <p className="text-lg md:text-xl text-slate-600 dark:text-slate-300 max-w-xl leading-relaxed border-l-4 border-primary-500/30 pl-6">

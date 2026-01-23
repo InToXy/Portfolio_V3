@@ -1,4 +1,5 @@
 
+import { Highlighter } from './components/ui/highlighter';
 import { Project, SkillCategory, Experience, Education, Passion, SocialLink, Certification } from './types';
 
 // Common Data (Non-translatable or shared)
@@ -88,7 +89,14 @@ export const TRANSLATIONS = {
     about: {
       title: 'À PROPOS',
       subtitle: 'Qui suis-je ?',
-      description: "Ingénieur DevOps en alternance, spécialisé en automatisation d'infrastructures et CI/CD. Maîtrise de Terraform, Ansible, Docker, GitLab CI. Expérience en réseaux, cybersécurité et supervision (Prometheus, Grafana, Zabbix). Motivé et rigoureux, je souhaite contribuer à des projets cloud performants et sécurisés.",
+      description: (
+        <>
+          <Highlighter action="highlight" color="#87CEFA" isView={true} delay={500}>Ingénieur DevOps en alternance</Highlighter>, spécialisé en automatisation d'infrastructures et CI/CD.<br />
+          Maîtrise de Terraform, Ansible, Docker, GitLab CI.<br />
+          Expérience en réseaux, cybersécurité et supervision (Prometheus, Grafana, Zabbix).<br />
+          <Highlighter action="underline" color="#FF9800" isView={true} delay={1000}>Motivé et rigoureux</Highlighter>, je souhaite contribuer à des <Highlighter action="underline" color="#FF9800" isView={true} delay={1500}>projets cloud performants et sécurisés</Highlighter>.
+        </>
+      ),
       cards: {
         infra: { title: 'Infrastructure', desc: "Conception d'architectures Cloud résilientes et performantes." },
         collab: { title: 'Collaboration', desc: "Travail en équipe et méthodes Agiles pour une livraison continue." },
@@ -436,7 +444,14 @@ export const TRANSLATIONS = {
     about: {
       title: 'ABOUT',
       subtitle: 'Who am I?',
-      description: "DevOps Engineer apprentice specializing in infrastructure automation and CI/CD. Proficient in Terraform, Ansible, Docker, GitLab CI. Experience in networking, cybersecurity, and monitoring (Prometheus, Grafana, Zabbix). Motivated and rigorous, I aim to contribute to performant and secure cloud projects.",
+      description: (
+        <>
+          <Highlighter action="highlight" color="#87CEFA" isView={true} delay={2000}>DevOps Engineer</Highlighter> apprentice specializing in infrastructure automation and CI/CD.<br />
+          Proficient in Terraform, Ansible, Docker, GitLab CI.<br />
+          Experience in networking, cybersecurity, and monitoring (Prometheus, Grafana, Zabbix).<br />
+          <Highlighter action="underline" color="#FF9800" isView={true} delay={2000}>Motivated and rigorous</Highlighter>, I aim to contribute to <Highlighter action="underline" color="#FF9800" isView={true} delay={2000}>performant and secure cloud projects</Highlighter>.
+        </>
+      ),
       cards: {
         infra: { title: 'Infrastructure', desc: "Designing resilient and performant Cloud architectures." },
         collab: { title: 'Collaboration', desc: "Teamwork and Agile methodologies for continuous delivery." },
