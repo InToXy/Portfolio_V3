@@ -53,7 +53,7 @@ const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
                         {content.title}
                     </h1>
                     <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                        {data.about.description}
+                        {data.about.description_plain}
                     </p>
                 </div>
 

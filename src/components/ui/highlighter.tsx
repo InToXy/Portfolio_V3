@@ -55,9 +55,18 @@ export function Highlighter({
     const element = elementRef.current
     if (!element) return
 
+    // Resolve color if it is a CSS variable
+    let resolvedColor = color;
+    if (color && color.startsWith('var(')) {
+      const varName = color.match(/var\(([^)]+)\)/)?.[1];
+      if (varName) {
+        resolvedColor = getComputedStyle(document.documentElement).getPropertyValue(varName).trim();
+      }
+    }
+
     const annotationConfig = {
       type: action,
-      color,
+      color: resolvedColor,
       strokeWidth,
       animationDuration,
       iterations,

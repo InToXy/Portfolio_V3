@@ -128,6 +128,8 @@
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
     --radius: 0.5rem;
+    --highlight-color: #87CEFA;
+    --underline-color: #FF9800;
   }
   .dark {
     --background: 0 0% 3.9%;
@@ -154,6 +156,8 @@
     --chart-3: 30 80% 55%;
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
+    --highlight-color: #38bdf8; /* Sky 400 for better visibility in dark mode */
+    --underline-color: #fb923c; /* Orange 400 */
   }
 }
 
