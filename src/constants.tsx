@@ -238,6 +238,26 @@ export const TRANSLATIONS = {
     },
     projects_data: [
       {
+        title: "EcoGuardian - Système IoT Campus",
+        category: "Projet École",
+        image: "/Portfolio_V3/images/iot_projet.png",
+        gallery: [
+          "/Portfolio_V3/images/iot_archi_logi.png",
+          "/Portfolio_V3/images/iot_archi_physique.png",
+          "/Portfolio_V3/images/iot_flow_node-red.png",
+          "/Portfolio_V3/images/iot_graph_plante.png"
+        ],
+        description: "Solution complète de surveillance environnementale : du capteur LoRa sécurisé (Edge) au Dashboard Cloud Big Data.",
+        context: "Le campus CESI modernise ses infrastructures et nécessite un système de surveillance fiable et pérenne. EcoGuardian répond à ce besoin par une architecture distribuée et résiliente, loin des simples prototypes.",
+        objective: "Déployer un réseau de capteurs autonomes (ESP32 + LoRa) communiquant avec une infrastructure Cloud centralisée. L'accent est mis sur la sécurité (chiffrement de bout en bout XTEA + TLS), la fiabilité (buffer circulaire local en cas de coupure) et l'expérience utilisateur (Dashboard temps réel).",
+        tags: ["Docker", "Node-RED", "InfluxDB", "ESP32", "LoRa", "MQTTS", "CrowdSec", "Traefik", "React"],
+        features: ["Transmission LoRa chiffrée (XTEA 128-bit)", "Buffer local sur capteur (0 perte de données)", "Traitement de flux avec Node-RED", "Base de données Time-Series (InfluxDB)", "Authentification SSO (Authelia)"],
+        competencies: ["Architecture IoT & Edge Computing", "Développement Firmware C++ Optimisé", "Sécurisation des flux (Crypto & TLS)", "Orchestration Conteneurisée"],
+        results: ["Système en production sur le campus", "Transmission fiable sur longue portée", "Visualisation fluide des métriques environnementales", "Architecture documentée et réplicable"],
+        githubUrl: "https://github.com/InToXy/IOT_project",
+        featured: true
+      },
+      {
         title: "Plateforme Big Data pour la Santé",
         category: "Projet École",
         image: "/Portfolio_V3/images/big_data.jpg",
@@ -593,6 +613,26 @@ export const TRANSLATIONS = {
       made_with: 'Designed with React & Tailwind CSS'
     },
     projects_data: [
+      {
+        title: "EcoGuardian - Campus IoT System",
+        category: "School Project",
+        image: "/Portfolio_V3/images/iot_projet.png",
+        gallery: [
+          "/Portfolio_V3/images/iot_archi_logi.png",
+          "/Portfolio_V3/images/iot_archi_physique.png",
+          "/Portfolio_V3/images/iot_flow_node-red.png",
+          "/Portfolio_V3/images/iot_graph_plante.png"
+        ],
+        description: "Complete environmental monitoring solution: from secure LoRa sensors (Edge) to Cloud Big Data Dashboard.",
+        context: "CESI campus modernization requires a reliable and sustainable monitoring system. EcoGuardian answers this need with a distributed and resilient architecture, far beyond simple prototypes.",
+        objective: "Deploy a network of autonomous sensors (ESP32 + LoRa) communicating with a centralized Cloud infrastructure. Focus is on security (End-to-end XTEA encryption + TLS), reliability (local circular buffer during outages), and user experience (Real-time Dashboard).",
+        tags: ["Docker", "Node-RED", "InfluxDB", "ESP32", "LoRa", "MQTTS", "CrowdSec", "Traefik", "React"],
+        features: ["Encrypted LoRa Transmission (XTEA 128-bit)", "Local Sensor Buffer (Zero Data Loss)", "Stream Processing with Node-RED", "Time-Series Database (InfluxDB)", "SSO Authentication (Authelia)"],
+        competencies: ["IoT Architecture & Edge Computing", "Optimized C++ Firmware Development", "Stream Security (Crypto & TLS)", "Containerized Orchestration"],
+        results: ["Production system deployed on campus", "Reliable long-range transmission", "Smooth visualization of environmental metrics", "Documented and replicable architecture"],
+        githubUrl: "https://github.com/InToXy/IOT_project",
+        featured: true
+      },
       {
         title: "Big Data Healthcare Platform",
         category: "School Project",

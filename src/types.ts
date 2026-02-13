@@ -19,6 +19,7 @@ export interface Project {
   image?: string;
   category?: string;
   deliverables?: { label: string; url: string }[];
+  gallery?: string[];
 }
 
 export interface SkillCategory {

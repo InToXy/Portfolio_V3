@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { Project } from '../../types';
-import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap, Download } from 'lucide-react';
+import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap, Download, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface ProjectsProps {
@@ -10,6 +10,7 @@ interface ProjectsProps {
 
 const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('All');
 
   const categories = useMemo(() => {
@@ -31,7 +32,12 @@ const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
 
   const closeModal = () => {
     setSelectedProject(null);
+    setSelectedImage(null);
     document.body.style.overflow = 'unset';
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
   };
 
   const getCategoryLabel = (cat: string) => {
@@ -156,7 +162,7 @@ const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="bg-white dark:bg-slate-900 w-full max-w-5xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative z-10 border border-slate-200 dark:border-slate-700 flex flex-col"
+              className="bg-white dark:bg-slate-900 w-full max-w-6xl max-h-[90vh] overflow-hidden rounded-xl shadow-2xl relative z-10 border border-slate-200 dark:border-slate-700 flex flex-col"
             >
 
               {/* Tech Scanline Overlay */}
@@ -261,6 +267,33 @@ const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
                     )}
                   </div>
 
+                  {/* Gallery Section */}
+                  {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                    <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }} className="mt-12 pt-10 border-t border-slate-100 dark:border-slate-800">
+                      <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-8 flex items-center gap-3 uppercase tracking-wide text-sm font-mono border-l-4 border-indigo-500 pl-4">
+                        <Filter size={20} className="text-indigo-500" /> Galerie & Architecture
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {selectedProject.gallery.map((img, i) => (
+                          <div
+                            key={i}
+                            className="group relative rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-xl transition-all cursor-zoom-in bg-slate-50 dark:bg-slate-800/30 aspect-video flex items-center justify-center"
+                            onClick={() => setSelectedImage(img)}
+                          >
+                            <img
+                              src={img}
+                              alt={`${selectedProject.title} - ${i + 1}`}
+                              className="w-full h-full object-contain p-2"
+                            />
+                            <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-all flex items-center justify-center opacity-0 group-hover:opacity-100">
+                              <ZoomIn className="text-white drop-shadow-md" size={32} />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </motion.div>
+                  )}
+
                   <div className="lg:col-span-1 space-y-8">
                     {/* Tech Stack Visualizer */}
                     <motion.div
@@ -338,9 +371,39 @@ const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
               </div>
             </motion.div>
           </div>
+        )
+        }
+      </AnimatePresence >
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/95 backdrop-blur-xl"
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 p-2 bg-slate-800 text-white rounded-full hover:bg-red-500 transition-colors z-50"
+            >
+              <X size={24} />
+            </button>
+            <motion.img
+              initial={{ scale: 0.9 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.9 }}
+              src={selectedImage}
+              alt="Full screen preview"
+              className="max-w-full max-h-screen object-contain rounded-lg shadow-2xl"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </motion.div>
         )}
       </AnimatePresence>
-    </section>
+    </section >
   );
 };
 
