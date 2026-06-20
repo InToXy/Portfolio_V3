@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Download, Linkedin, Github, Mail, Calendar, Award } from 'lucide-react';
-import { PROFILE, SOCIALS, CALENDAR_URL } from '../../constants';
+import { PROFILE, SOCIALS, CALENDAR_URL } from '../../data/profile';
 import PipelineAnimation from '../features/PipelineAnimation';
 import { Particles } from '../ui/Particles';
 import { BlurFade } from '../ui/blur-fade';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface HeroProps {
   onNavigate?: (page: string) => void;
-  content: any;
 }
 
-const Hero: React.FC<HeroProps> = ({ onNavigate, content }) => {
+const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+  const content = t.hero;
   const [currentPassion, setCurrentPassion] = useState(0);
   const passions = content.rotating_text || ["Randonneur", "Motard", "Voyageur"]; // Fallback if not yet loaded
 

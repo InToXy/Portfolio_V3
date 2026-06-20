@@ -1,16 +1,11 @@
 
 import React from 'react';
 import { Passion } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface PassionsProps {
-  content: {
-    tag: string;
-    title: string;
-    items: Passion[];
-  };
-}
-
-const Passions: React.FC<PassionsProps> = ({ content }) => {
+const Passions: React.FC = () => {
+  const { t } = useLanguage();
+  const content = t.passions;
   return (
     <section id="passions" className="py-20 bg-transparent transition-colors">
       <div className="max-w-7xl mx-auto px-6">

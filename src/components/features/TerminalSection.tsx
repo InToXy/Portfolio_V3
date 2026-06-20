@@ -2,13 +2,15 @@
 import React from 'react';
 import InteractiveTerminal from './InteractiveTerminal';
 import { Terminal } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface TerminalSectionProps {
   onNavigate?: (page: string) => void;
-  content: any;
 }
 
-const TerminalSection: React.FC<TerminalSectionProps> = ({ onNavigate, content }) => {
+const TerminalSection: React.FC<TerminalSectionProps> = ({ onNavigate }) => {
+  const { t } = useLanguage();
+  const content = t.terminal;
   return (
     <section id="terminal" className="py-24 bg-slate-950/80 backdrop-blur-md relative overflow-hidden border-y border-slate-800">
       {/* Cyber Grid Background */}

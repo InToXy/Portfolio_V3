@@ -2,24 +2,19 @@ import React from 'react';
 import { Dock, DockIcon } from '../ui/Dock';
 import { Home, User, Code, Terminal, Brain, Briefcase, Globe, Heart } from 'lucide-react';
 import { AnimatedThemeToggler } from '../ui/AnimatedThemeToggler';
+import { useLanguage } from '../../context/LanguageContext';
+import { useTheme } from '../../context/ThemeContext';
 
 interface DockNavbarProps {
-    darkMode: boolean;
-    toggleTheme: () => void;
     onNavigate: (page: string) => void;
-    lang: 'fr' | 'en';
-    toggleLang: () => void;
-    content: any;
 }
 
 const DockNavbar: React.FC<DockNavbarProps> = ({
-    darkMode,
-    toggleTheme,
-    onNavigate,
-    lang,
-    toggleLang,
-    content
+    onNavigate
 }) => {
+    const { lang, toggleLang, t } = useLanguage();
+    const content = t.nav;
+    const { isDarkMode: darkMode, toggleTheme } = useTheme();
 
     const scrollToSection = (id: string) => {
         if (id === 'home') {

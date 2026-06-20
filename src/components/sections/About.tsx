@@ -1,13 +1,12 @@
 
 import React from 'react';
 import { User, ShieldCheck, Server } from 'lucide-react';
-import { PROFILE } from '../../constants';
+import { PROFILE } from '../../data/profile';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface AboutProps {
-  content: any;
-}
-
-const About: React.FC<AboutProps> = ({ content }) => {
+const About: React.FC = () => {
+  const { t } = useLanguage();
+  const content = t.about;
   return (
     <section id="about" className="py-20 bg-transparent">
       <div className="max-w-6xl mx-auto px-6">

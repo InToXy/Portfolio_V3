@@ -1,20 +1,13 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { CERTIFICATIONS } from '../../constants';
+import { CERTIFICATIONS } from '../../data/certifications';
 import { Briefcase, GraduationCap, Calendar, Building2, Award, CheckCircle2 } from 'lucide-react';
 import { Experience as ExperienceType, Education as EducationType } from '../../types';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface ExperienceProps {
-    content: {
-        title_work: string;
-        title_edu: string;
-        title_cert: string;
-        data: ExperienceType[];
-        education: EducationType[];
-    };
-}
-
-const Experience: React.FC<ExperienceProps> = ({ content }) => {
+const Experience: React.FC = () => {
+    const { t } = useLanguage();
+    const content = t.experience;
     const [isVisible, setIsVisible] = useState(false);
     const sectionRef = useRef<HTMLElement>(null);
 

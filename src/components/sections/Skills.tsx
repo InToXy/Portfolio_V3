@@ -3,14 +3,9 @@ import { Cpu, Cloud, Code2, Server, Shield, Activity, Database, Terminal } from 
 import { SkillCategory } from '../../types';
 import { motion } from 'framer-motion';
 import { IconCloud } from '../ui/IconCloud';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface SkillsProps {
-  content: {
-    tag: string;
-    title: string;
-    categories: SkillCategory[];
-  };
-}
+// SkillsProps removed
 
 const slugs = [
   "docker",
@@ -62,7 +57,9 @@ const itemVariants = {
   }
 };
 
-const Skills: React.FC<SkillsProps> = ({ content }) => {
+const Skills: React.FC = () => {
+  const { t } = useLanguage();
+  const content = t.skills;
   const images = slugs.map(
     (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
   );
@@ -147,7 +144,7 @@ const Skills: React.FC<SkillsProps> = ({ content }) => {
   );
 };
 
-const SkillCard = ({ category, idx }: { category: unknown, idx: number }) => {
+const SkillCard = ({ category, idx }: { category: unknown, idx: number, key?: number | string }) => {
   // Helper to get icon
   const getIconForCategory = (title: string) => {
     const t = title.toLowerCase();

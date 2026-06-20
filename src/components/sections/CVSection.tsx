@@ -1,15 +1,17 @@
 
 import React, { useEffect } from 'react';
 import { Download, ArrowLeft, Award, GraduationCap, Languages, FileText, CheckCircle2, User, Briefcase, MapPin, Phone, Mail, Github, Linkedin, ExternalLink } from 'lucide-react';
-import { PROFILE, CERTIFICATIONS, SOCIALS } from '../../constants';
+import { PROFILE, SOCIALS } from '../../data/profile';
+import { CERTIFICATIONS } from '../../data/certifications';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CVSectionProps {
     onBack?: () => void;
-    content: any;
-    data: any;
 }
 
-const CVSection: React.FC<CVSectionProps> = ({ onBack, content, data }) => {
+const CVSection: React.FC<CVSectionProps> = ({ onBack }) => {
+    const { t: data } = useLanguage();
+    const content = data.cv;
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);

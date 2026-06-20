@@ -1,7 +1,9 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { Terminal as TerminalIcon, Wifi, Battery, Clock, AlertCircle, Check, CornerDownRight } from 'lucide-react';
-import { PROFILE, SKILLS, SOCIALS, CALENDAR_URL, EXPERIENCE, PROJECTS } from '../../constants'; // Projects/Exp passed via props or globals
+import { PROFILE, SOCIALS, CALENDAR_URL } from '../../data/profile';
+import { SKILLS_DATA } from '../../data/skills';
+import { useLanguage } from '../../context/LanguageContext';
 
 interface CommandHistory {
   cmd: string;
@@ -14,6 +16,7 @@ interface InteractiveTerminalProps {
 }
 
 const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, content }) => {
+  const { t } = useLanguage();
   const [history, setHistory] = useState<CommandHistory[]>([]);
   const [currentInput, setCurrentInput] = useState('');
   const [time, setTime] = useState(new Date().toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' }));
@@ -80,7 +83,7 @@ const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, c
                   <span className="text-blue-400">STATUS:</span> <span className="text-green-500 animate-pulse">● ONLINE (Open to work)</span>
                 </div>
                 <div className="mt-3 text-slate-400 border-t border-slate-800 pt-2 text-xs leading-relaxed">
-                  {PROFILE.about}
+                  {t.about.description_plain}
                 </div>
               </div>
             </div>
@@ -92,7 +95,7 @@ const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, c
         output = (
           <div className="space-y-3 font-mono text-sm">
             <div className="text-slate-500 border-b border-slate-800 pb-1 mb-2">Scanning active modules...</div>
-            {SKILLS.map((cat, i) => (
+            {SKILLS_DATA.map((cat, i) => (
               <div key={i} className="flex flex-col md:flex-row md:items-baseline gap-2 group">
                 <div className="min-w-[180px] text-purple-400 font-bold uppercase tracking-wider text-xs flex items-center gap-2">
                   <span className="text-slate-600 text-[10px] group-hover:text-purple-500/50">0{i + 1}</span>
@@ -130,7 +133,7 @@ const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, c
                   </tr>
                 </thead>
                 <tbody>
-                  {PROJECTS.slice(0, 5).map((proj, i) => (
+                  {t.projects_data.slice(0, 5).map((proj: any, i: number) => (
                     <tr key={i} className="border-b border-slate-800/50 hover:bg-slate-800/20 transition-colors">
                       <td className="py-2 px-2 text-slate-500">0{i + 1}</td>
                       <td className="py-2 px-2 text-blue-400 font-bold">{proj.title}</td>
@@ -152,7 +155,7 @@ const InteractiveTerminal: React.FC<InteractiveTerminalProps> = ({ onNavigate, c
         output = (
           <div className="font-mono text-sm space-y-4">
             <div className="text-slate-500 border-b border-slate-800 pb-1 mb-2">Reading system logs (/var/log/career.log)...</div>
-            {EXPERIENCE.map((exp, i) => (
+            {t.experience.data.map((exp: any, i: number) => (
               <div key={i} className="pl-2 border-l-2 border-slate-700 ml-1">
                 <div className="flex flex-col md:flex-row md:items-baseline gap-2">
                   <span className="text-yellow-400 font-bold">{exp.period}</span>

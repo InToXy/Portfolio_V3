@@ -1,13 +1,12 @@
 
 import React from 'react';
-import { PROFILE, SOCIALS } from '../../constants';
+import { PROFILE, SOCIALS } from '../../data/profile';
 import { Mail, Linkedin, Github } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface FooterProps {
-  content: any;
-}
-
-const Footer: React.FC<FooterProps> = ({ content }) => {
+const Footer: React.FC = () => {
+  const { t } = useLanguage();
+  const content = t.footer;
   return (
     <footer id="contact" className="bg-slate-900 text-white py-20 border-t border-slate-800">
       <div className="max-w-4xl mx-auto px-6 text-center">

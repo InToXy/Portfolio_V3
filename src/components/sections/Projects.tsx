@@ -2,13 +2,12 @@ import React, { useState, useMemo } from 'react';
 import { Project } from '../../types';
 import { FolderGit2, ExternalLink, X, Terminal, Server, CheckCircle, ArrowRight, Cpu, Activity, Database, Filter, Award, Zap, Download, ZoomIn } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../../context/LanguageContext';
 
-interface ProjectsProps {
-  content: any;
-  projects: Project[];
-}
-
-const Projects: React.FC<ProjectsProps> = ({ content, projects }) => {
+const Projects: React.FC = () => {
+  const { t } = useLanguage();
+  const content = t.projects;
+  const projects = t.projects_data;
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState<string>('All');
