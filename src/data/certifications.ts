@@ -18,5 +18,11 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "Amazon Web Services (AWS)",
     date: "Avr. 2026 - Avr. 2029",
     badgeUrl: "https://d1.awsstatic.com/training-and-certification/certification-badges/AWS-Certified-Solutions-Architect-Associate_badge.3419559c682629072f1eb968d59dea0741772c0f.png"
+  },
+  {
+    name: "HashiCorp Certified: Terraform Associate (004)",
+    issuer: "HashiCorp",
+    date: "Juil. 2026 - Juil. 2028",
+    badgeUrl: "https://images.credly.com/size/680x680/images/0e717fa5-93a1-4203-964c-051b4734b7eb/blob"
   }
 ];
